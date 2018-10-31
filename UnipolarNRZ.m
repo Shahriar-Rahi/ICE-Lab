@@ -5,8 +5,10 @@ bits = randi([0, 1], 1,10);
 
 bitrate = 1000;
 T = length(bits)/bitrate;
-n = 200;
+%T = length(bits);
+n = 300;
 N = n*length(bits);
+%N=n*T;
 dt = T/N;
 t = 0:dt:T;
 x = zeros(1,length(t));
@@ -21,14 +23,15 @@ end
 
 plot(t,x,'r-');
 axis([0 length(bits)/bitrate -5 5]);
+%axis([0 t(end) -5 5]);
 title('Unipolar NRZ line coding');
 
 
 origin_bits = zeros(1, round(length(x) / n));
 
-for i = 1:length(x) / n
-    origin_bits(i) = x(i * n) / 3;
-end
+%for i = 1:length(x) / n
+    %origin_bits(i) = x(i * n) / 3;
+%end
 
 for i = 1:length(x) / n
     count = 0;
